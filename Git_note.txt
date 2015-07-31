@@ -1,0 +1,14 @@
+	git
+1, 配置Git信息  
+	-- 选择快速编辑模式(Git Bash快捷图标（桌面图标）右键属性-选项，把快速编辑模式勾上就可以)
+    -- 设置Git本地项目开发库默认路径(右键Git Bash快捷图标 属性，找到快捷方式-起始位置，把你的项目地址放在这里就可以了)
+2, 配置本地用户和邮箱
+	-- git config --global user.name "abc"
+	-- git config --global user.email "abc@def.com"
+	-- 上面的内容都写在配置文件~/.gitconfig里了
+3, git init 将一个目录初始化为 Git 仓库
+	-- git init
+4, git clone 复制一个 Git 仓库，以上下其手
+	-- git clone [url] [url] 为你想要复制的项目. Git 会按照你提供的 URL 所指示的项目的名称创建你的本地项目目录。 通常就是该 URL 最后一个 / 之后的任何东西。如果你想要一个不一样的名字， 你可以在该命令后加上它，就在那个 URL 后面。
+5, git add 添加文件到缓存
+	-- git add 添加需要追踪的新文件和待提交的更改

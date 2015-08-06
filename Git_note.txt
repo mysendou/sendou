@@ -20,5 +20,11 @@
 	-- git diff --cached 命令会告诉你有哪些内容已经写入缓存.如果你想看看已缓存的改动，你需要执行的是 git diff --cached。
 	-- git diff HEAD 也就是说你要看到的是工作目录与上一次提交的更新的区别，无视缓存。
 	-- git diff –stat 显示摘要而非整个 diff
-8, git commit 记录缓存内容的快照
+8, git commit -m "备注"  记录缓存内容的快照(如果忘掉-m git 会自动打开一个vim编辑需要用户填写)
 9, git reset HEAD 取消缓存已缓存的内容
+10, git rm 将文件从缓存区移除 它还会删除你的工作目录中的相应文件。 如果要在工作目录中留着该文件，可以使用 git rm --cached
+11, git remote –v，可查看版本库的网址。
+12, git fetch 主机名字 此命令可以将远程版本库的更新，更新到本地库。 在默认情况下，git fetch origin将会更新远程主机origin上的所有分支，如果只想更新某个分支，则在主机名origin后面加分支名。(git fetch origin master)
+13, git push 此命令用于将本地分支的更新推送到远程主机。 语法：git push 远程主机名 本地分支名：远程分支名 git push origin master,表示将本地master分支推送到origin主机的master分支上。
+14, git pull 此命令用于获取远程分支中更新。
+	-- git pull 远程主机 远程分支：本地分支如：git pull origin master:master,表示将远程主机origin中的master分支跟新到本地分支master。

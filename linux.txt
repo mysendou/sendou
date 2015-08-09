@@ -45,4 +45,14 @@ Linux
 		---userdel xiaoming  (删除xiaoming用户)
 		---userdel -r xiaoming  (删除xiaoming以及xiaoming相关的文件夹)
 	linux运行级别
-	命令: init[0123456]
+	命令: init[0123456](3,5常用)(etc文件夹下inittab的ID)
+		---0: 关机
+		---1：单用户
+		---2：多用户没有网络
+		---3：多用户有网络
+		---4：系统未使用保留给用户
+		---5：图形界面
+		---6：系统重启
+	------解决修改配置进入grub引导的界面按e
+	------在选中第二行输入e
+	------在最后输入1

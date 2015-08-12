@@ -26,6 +26,13 @@ Linux
 			:wq   储存后离开，若为 :wq! 则为强制储存后离开（常用）
 			:e!   将档案还原到最原始的状态！
 			:set nu    显示行号，设定之后，会在每一行的前缀显示该行的行号
+		----------linux下运行java程序
+			vi Hello.java
+			输入i 进入编辑模式
+			输入esc, 进入命令模式
+			：wq保存退出， q!不保存推出
+			编译javac Hello.java
+			运行 java Hello
 	/(根目录)
 		root 存放root用户相关的文件
 		home 存放普通用户相关的文件
@@ -70,3 +77,5 @@ Linux
 	---less显示文件内容带分页
 	---grep 在文件中查找内容
 	---man命令相当于dos下的help命令
+	---ls -l > a.txt 列表内容写入a.txt
+	---ls -l >> a.txt 列表内容追加到a.txt

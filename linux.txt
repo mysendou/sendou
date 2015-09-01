@@ -79,3 +79,4 @@ Linux
 	---man命令相当于dos下的help命令
 	---ls -l > a.txt 列表内容写入a.txt
 	---ls -l >> a.txt 列表内容追加到a.txt
+	--

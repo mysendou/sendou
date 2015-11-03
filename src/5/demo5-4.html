@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="../jquery-1.11.3.js" type="text/javascript"></script>
+        <style type="text/css">
+      body{
+          font:normal 12px/17px Arial;
+        }
+      div{
+            padding:2px;
+        } 
+      input, textarea { 
+        width: 12em; 
+        border: 1px solid #888;
+      }
+      .focus { 
+        border: 1px solid #f00;
+        background: #fcc;
+      } 
+  </style>
+  <title></title>
+  <script type="text/javascript">
+    $(function(){
+        $("#CheckedAll").click(function(){
+          $('[name=items]:checkbox').attr("checked",this.checked);
+        });
+
+        $('[name=items]:checkbox').click(function(){
+
+        var $tmp=$('[name=items]:checkbox');
+        //用filter方法筛选出选中的复选框。并直接给CheckedAll赋值。
+        $('#CheckedAll').attr('checked',$tmp.length==$tmp.filter(':checked').length);
+
+        /*  var flag = true;
+          $('[name=items]:checkbox').each(function(){
+            if(!this.checked){
+              flag = false;
+            }
+          });
+          $("#CheckedAll").attr('checked', flag);*/
+        });
+
+        $('#send').click(function(){
+          var str = "你选中的是：\r\n";
+          $('[name=items]:checkbox:checked').each(function(){
+            str += $(this).val()+"\r\n";
+          });
+          alert(str);
+        });
+    });
+  </script>
+</head>
+<body>
+<form method="post" action="">
+   你爱好的运动是？
+   <br/>
+    <input type="checkbox" id="CheckedAll" value="全选/全部选"/>全选/全部选<br/>
+    <input type="checkbox" name="items" value="足球"/>足球
+  	<input type="checkbox" name="items" value="篮球"/>篮球
+  	<input type="checkbox" name="items" value="羽毛球"/>羽毛球
+  	<input type="checkbox" name="items" value="乒乓球"/>乒乓球
+   <br/>
+	<input type="button" id="send" value="提　交"/> 
+</form>
+</body>
+</html>

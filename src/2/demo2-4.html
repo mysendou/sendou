@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<script src="../jquery-1.11.3.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#btn1").click(function(){
+					$("#form1 input:enabled")
+					.val("这里变化了！");
+				});
+
+				$("#btn2").click(function(){
+					$("#form1 input:disabled")
+					.val("我也变化了！！！");
+				});
+
+				$("#btn3").click(function(){
+					alert($("input:checked").length);
+				});
+
+				$("#btn4").click(function(){
+					alert($("select :selected").text());
+				});
+			});
+		</script>
+	</head>
+	<body>
+	<input type="button" value="改变标签内input元素的值" id="btn1" />
+	<input type="button" value="改变标签内disable input元素的值" id="btn2" />
+	<input type="button" value="获取多选框选框选中的个数" id="btn3" />
+	<input type="button" value="获取下拉框选中的内容" id="btn4" /><br />
+	<form id="form1" action="#">
+		可用元素 :  <input name="add" value="可用文本框" / ><br />
+		不可用元素: <input name="email" disabled="disable" value="不可用文本框" / ><br />
+		可用元素: <input name="che" value="可用文本框" /><br />
+		不可用元素: <input name="name" value="不可用文本框" disabled="disable" /><br />
+		<br />
+		多选框：<br />
+		<input type="checkbox" name="newsletter" checked="checked" value="test1">test1
+		<input type="checkbox" name="newsletter" value="test2">test2
+		<input type="checkbox" name="newsletter" value="test3">test3
+		<input type="checkbox" name="newsletter" checked="checked" value="test4">test4
+		<input type="checkbox" name="newsletter" value="test5">test5
+		<div></div>
+		<br /><br />
+		下拉列表1： <br />
+		<select name="test" multiple="multiple" style="height:100px">
+			<option>浙江</option>
+			<option selected="selected">湖北</option>
+			<option>北京</option>
+			<option selected="selected">天津</option>
+			<option>广州</option>
+			<option>湖北</option>
+		</select>
+		<br/><br/>
+		下拉列表2: <br />
+		<select name="test2">
+			<option>浙江</option>
+			<option>湖北</option>
+			<option selected="selected">北京</option>
+			<option>天津</option>
+			<option>广州</option>
+			<option>湖北</option>
+		</select>
+		<div></div>
+	</form>
+	</body>
+</html>

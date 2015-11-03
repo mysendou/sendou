@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<script src="../jquery-1.11.3.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("ul li").click(function(){
+					$(this).clone(true).appendTo("ul");
+				});
+
+				//$("p").replaceWith("<strong>你最不喜欢的水果是？</strong>");
+				$("p").wrap("<b></b>");
+				//$("p").wrapAll("<b></b>");
+			});
+		</script>
+	</head>
+	<body>
+		<p title="选择你喜欢的水果">你最喜欢的水果是？</p>
+		<p title="选择你喜欢的水果">你最喜欢的水果是？</p>
+		<ul>
+			<li title="苹果">苹果</li>
+			<li title="橘子">橘子</li>
+			<li title="菠萝">菠萝</li>
+		</ul>
+	</body>
+</html>

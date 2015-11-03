@@ -1,0 +1,112 @@
+1.数据库编码不一致导致乱码
+解决方法：
+
+首先查看数据库编码，输入：
+
+show variables like "%char%";
+
+确认编码一致，如果不一致，可输入：
+
+SET character_set_client='utf8';
+SET character_set_connection='utf8';
+SET character_set_results='utf8';也可设置成gbk编码;
+
+也可以在安装Mysql目录下修改my.ini文件
+
+default-character-set=utf-82.jsp页面乱码问题
+在myeclipse中jsp的默认编码为ISO-8859-8；
+
+只需在页面头部修改为
+
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>在JSP页面头部加入下面这句话，告诉浏览器应该调用UTF-8的字符集。
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>3.jsp连接数据库存入中文乱码
+在数据库连接时
+
+jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8如果使用框架连接则把头文件都修改成UTF-8编码即可
+
+4.在使用struts2可使用过滤器：
+先变写一个过滤器
+
+package com.oumyye.util;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+public class CharacterEncodingFilter implements Filter{
+
+    protected String encoding = null;
+    protected FilterConfig filterConfig = null;
+
+    public void init(FilterConfig filterConfig) throws ServletException {
+        this.filterConfig = filterConfig;
+        this.encoding = filterConfig.getInitParameter("encoding");
+    }
+
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        if (encoding != null) {
+            request.setCharacterEncoding(encoding);
+            response.setContentType("text/html; charset="+encoding);
+        }
+        chain.doFilter(request, response);
+    }
+
+    public void destroy() {
+        this.encoding = null;
+        this.filterConfig = null;
+    }
+}在web.xml中配置
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>0001web</display-name>
+  <!-- 中文编码过滤器 -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>com.oumyye.util.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>在表单中只能使用post传值,此方法对于get无效。
+
+5 处理单个字符串的中文乱码问题
+String newname=new String(name.getBytes("iso-8859-1"),"utf-8"))附：JSP中的编码设置1. pageEncoding:<%@ page pageEncoding=“UTF-8″%>
+
+设置JSP编译成Servlet时使用的编码
+
+2. contentType: <%@ page contentType=“text/html; charset=UTF-8″%>
+
+对服务器响应进行重新编码，即jsp的输出流在浏览器中显示的编码
+
+3. html页面charset:<META http-equiv=“Content-Type” content=“text/html; charset=UTF-8″>
+
+网页的编码信息 ，说明页面制作所使用的编码
+
+4. request.setCharacterEncoding()  — 可用在servlet和jsp页面中
+
+作用是设置对客户端请求进行重新编码的编码，即post方式提交的数据进行编码。
+
+5. response.setCharacterEncoding() — 可用在servlet和jsp页面中
+
+对服务器响应进行重新编码，即jsp的输出流在浏览器中显示的编码，与<%@ page contentType=“text/html;charset=UTF-8″%>一样
+
+6. response.setContentType() — 可用在servlet和jsp页面中
+
+对服务器响应进行重新编码，即jsp的输出流在浏览器中显示的编码，与<%@ page contentType=“text/html;charset=UTF-8″%>一样 
+
+7.response.setHeader(“Content-Type”,”text/html;charset=UTF-8″);   — 可用在servlet和jsp页面中
+
+与<META http-equiv=“Content-Type” content=“text/html; charset=UTF-8″>一样

@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+		<title>地图显示</title>
+
+		<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css" />
+		<script src="http://webapi.amap.com/maps?v=1.3&key=4122b3d6dc0a726165f939f91f9d3168"></script>
+	</head>
+
+	<body>
+		<div id="mapContainer"></div>
+		<!-- 绝对定位放在靠左边10个像素，距底端距离分别是120px 和 60px 宽度60px，高度40px， 圆角，背景颜色，字体白色，背景蓝色-->
+		<div id="zoomIn" style="position: absolute;left: 10px;bottom: 120px;width: 60px;height: 40px;z-index: 160;background-color: #008CFF; color:#FFF; border-radius:3px; line-height: 40px; text-align: center; cursor: pointer;">放大</div>
+		<div id="zoomOut" style="position: absolute;left: 10px;bottom: 60px;width: 60px;height: 40px;z-index: 160;background-color: #008CFF; color:#FFF; border-radius:3px; line-height: 40px; text-align: center; cursor: pointer;">缩小</div>
+		<script>
+			var map = new AMap.Map('mapContainer');
+			    //map.setCity("西安");
+				map.plugin(['AMap.Driving'],function(){
+					var driving = new AMap.Driving({
+						policy:AMap.DrivingPolicy.LEAST_TIME//最少时间
+					});
+					
+					driving.search(new AMap.LngLat(116.379018,39.805626),new AMap.LngLat(116.42732,39.903752));
+					
+					AMap.event.addListener(driving, 'complete', function(e){
+						console.log(e);
+						if(e.info == 'OK'){
+							var steps = e.routes[0].steps;
+							addMark(steps[0].path[0]);				
+						}
+						for (var i = 0; i < steps.length; i++) {
+							drawLine(steps[i].path,map);
+							console.log(steps[i].instruction);
+						}
+					});
+				});
+				
+				//dram line
+				function drawLine(data, map){
+					var polyline = new AMap.Polyline({
+						map:map,
+						path:data,
+						strokeColor:'red',
+						strokeOpacity:0.9,
+						strokeWeight:4,
+						strokeDasharray:[10,5]
+					});
+				}
+				
+				//add start and end point
+				function addMark(position){
+					var mark = new AMap.Marker({
+						map:map,
+						position:position
+					});
+				}
+		</script>
+	</body>
+
+</html>

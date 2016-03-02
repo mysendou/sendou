@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery图片相册切换特效代码 - 代码笔记 www.www.jb51.net</title>
+<meta name="keywords" content="jQuery相册插件,jQuery相册特效,JS相册特效,JS相册代码,jQuery相册代码,jQuery相册展示特效" />
+<meta name="description" content="代码笔记提供高质量jQuery相册特效代码学习和下载" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link href="css/xiangce.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+<script src="js/xiangce.js" type="text/javascript"></script>
+</head>
+<body>
+<center>
+  <!--图片轮换开始-->
+  <div class="bodymodal"> </div>
+  <div class="firsttop">
+    <div class="firsttop_right">
+      <div class="close2"> <a class="closebtn1" title="关闭" href="javascript:void(0)"></a> </div>
+      <div class="replay">
+        <h2 id="div-end-h2"> 已到第一张图片了。 </h2>
+        <p> <a target="_blank" class="replaybtn1" href="javascript:">重新播放</a> </p>
+      </div>
+      <div class="pictwo">
+        <ul>
+          <li> <a href="http://www.www.jb51.net/" title="大学生交学费中大奖：这幸福来得好突然"><img src="images/3e60655e-1371-4424-bd48-f10ba11076a9.jpg" alt="大学生交学费中大奖：这幸福来得好突然" /></a>
+            <div class="imgdivtext"> <a href="http://www.www.jb51.net/" title="大学生交学费中大奖：这幸福来得好突然">上一图集</a> </div>
+          </li>
+          <li> <a href="http://www.www.jb51.net/" title="女子酒后从9楼坠下奇迹生还 砸坏3层楼外墙铝塑板"><img src="images/b84a9fcb-ebdd-4378-b694-778dee4e566a.jpg" alt="女子酒后从9楼坠下奇迹生还 砸坏3层楼外墙铝塑板" /></a>
+            <div class="imgdivtext"> <a href="http://www.www.jb51.net/" title="女子酒后从9楼坠下奇迹生还 砸坏3层楼外墙铝塑板">下一图集</a> </div>
+          </li>
+        </ul>
+      </div>
+      <div class="returnbtn"> <a title="代码笔记" href="http://www.www.jb51.net/" target="_blank">返回首页</a> </div>
+    </div>
+  </div>
+  <!--图片结束出现的-->
+  <div class="endtop">
+    <div class="firsttop_right">
+      <div class="close2"> <a class="closebtn2" title="关闭" href="javascript:void(0)"></a> </div>
+      <div class="replay">
+        <h2 id="H1"> 已到最后一张图片了。 </h2>
+        <p> <a target="_blank" class="replaybtn2" href="javascript:">重新播放</a> </p>
+      </div>
+      <div class="pictwo">
+        <ul>
+          <li> <a href="http://www.www.jb51.net/" title="大学生交学费中大奖：这幸福来得好突然"><img src="images/3e60655e-1371-4424-bd48-f10ba11076a9.jpg" alt="大学生交学费中大奖：这幸福来得好突然" /></a>
+            <div class="imgdivtext"> <a href="http://www.www.jb51.net/" title="大学生交学费中大奖：这幸福来得好突然">上一图集</a> </div>
+          </li>
+          <li> <a href="http://www.www.jb51.net/" title="女子酒后从9楼坠下奇迹生还 砸坏3层楼外墙铝塑板"><img src="images/b84a9fcb-ebdd-4378-b694-778dee4e566a.jpg" alt="女子酒后从9楼坠下奇迹生还 砸坏3层楼外墙铝塑板" /></a>
+            <div class="imgdivtext"> <a href="http://www.www.jb51.net/" title="女子酒后从9楼坠下奇迹生还 砸坏3层楼外墙铝塑板">下一图集</a> </div>
+          </li>
+        </ul>
+      </div>
+      <div class="returnbtn"> <a title="代码笔记" href="http://www.www.jb51.net/" target="_blank">返回首页</a> </div>
+    </div>
+  </div>
+  <!--轮播过程-->
+  <div class="detail_context_pic">
+    <div class="detail_context_pic_top"> <a href="#"><img src="" alt="" id="pic1" curindex="0" /></a> <a id="preArrow" href="javascript:void(0)" class="contextDiv" title="上一张"><span id="preArrow_A"></span></a> <a id="nextArrow" href="javascript:void(0)" class="contextDiv" title="上一张"><span id="nextArrow_A"></span></a>
+      <div id="miaoshuwarp">
+        <div class="miaoshu"> </div>
+      </div>
+    </div>
+    <!--图片轮播-->
+    <div class="detail_context_pic_bot">
+      <div class="detail_picbot_left"> <a href="javascript:void(0)" id="preArrow_B"><img src="images/left1.jpg" alt="上一个" /></a> </div>
+      <div class="detail_picbot_mid">
+        <ul>
+          <li> <a href='javascript:void(0);'> <img src='images/f62336b0-8b5e-4c5d-a64d-f3d93d06ed30.jpg' width='90px' height='60px' title='2014年8月10日19点15分，深圳上空的超级月亮。' alt='2014年8月10日19点15分，深圳上空的超级月亮。' bigimg='images/f62336b0-8b5e-4c5d-a64d-f3d93d06ed30.jpg' text='2014年8月10日19点15分，深圳上空的超级月亮。' /> </a> </li>
+          <li> <a href='javascript:void(0);'> <img src='images/dace14a2-7f7a-4e83-92c1-a27b632d29de.jpg' width='90px' height='60px' title='8月10日晚，河北省石家庄，被称为“超级月亮”的全年最大最圆的满月在天幕出现。' alt='8月10日晚，河北省石家庄，被称为“超级月亮”的全年最大最圆的满月在天幕出现。' bigimg='images/dace14a2-7f7a-4e83-92c1-a27b632d29de.jpg' text='8月10日晚，河北省石家庄，被称为“超级月亮”的全年最大最圆的满月在天幕出现。' /> </a> </li>
+          <li> <a href='javascript:void(0);'> <img src='images/2a78a673-78ed-4693-9a5f-80ad655ecb6b.jpg' width='90px' height='60px' title='当地时间2014年8月10日，新西兰奥克兰，“超级月亮”升起。' alt='当地时间2014年8月10日，新西兰奥克兰，“超级月亮”升起。' bigimg='images/2a78a673-78ed-4693-9a5f-80ad655ecb6b.jpg' text='当地时间2014年8月10日，新西兰奥克兰，“超级月亮”升起。' /> </a> </li>
+          <li> <a href='javascript:void(0);'> <img src='images/fed60aaa-91f4-4d73-84af-7d95e985edf0.jpg' width='90px' height='60px' title='2014年8月10日晚，一轮金灿灿的大月亮在辽宁省大连市东方升起。' alt='2014年8月10日晚，一轮金灿灿的大月亮在辽宁省大连市东方升起。' bigimg='images/fed60aaa-91f4-4d73-84af-7d95e985edf0.jpg' text='2014年8月10日晚，一轮金灿灿的大月亮在辽宁省大连市东方升起。' /> </a> </li>
+          <li> <a href='javascript:void(0);'> <img src='images/4ca14f20-0032-4370-8257-ac0ada54dcbc.jpg' width='90px' height='60px' title=' 年度最大最圆“超级月亮”亮相(组图)(5/14) 保存图片 打印 2014-08-11 08:07:48      参与评论(0)人 年度最大最圆“超级月亮”亮相(组图) 上一张下一张 宇航员Oleg Artemyev 拍摄于空间站。' alt=' 年度最大最圆“超级月亮”亮相(组图)(5/14) 保存图片 打印 2014-08-11 08:07:48      参与评论(0)人 年度最大最圆“超级月亮”亮相(组图) 上一张下一张 宇航员Oleg Artemyev 拍摄于空间站。' bigimg='images/4ca14f20-0032-4370-8257-ac0ada54dcbc.jpg' text=' 年度最大最圆“超级月亮”亮相(组图)(5/14) 保存图片 打印 2014-08-11 08:07:48      参与评论(0)人 年度最大最圆“超级月亮”亮相(组图) 上一张下一张 宇航员Oleg Artemyev 拍摄于空间站。' /> </a> </li>
+          <li> <a href='javascript:void(0);'> <img src='images/f22b388f-10a5-47e1-93f5-3c1aca58fc39.jpg' width='90px' height='60px' title='当地时间2014年8月10日，西班牙马德里，女孩牵着狗狗在超级月亮照耀下漫步。' alt='当地时间2014年8月10日，西班牙马德里，女孩牵着狗狗在超级月亮照耀下漫步。' bigimg='images/f22b388f-10a5-47e1-93f5-3c1aca58fc39.jpg' text='当地时间2014年8月10日，西班牙马德里，女孩牵着狗狗在超级月亮照耀下漫步。' /> </a> </li>
+        </ul>
+      </div>
+      <div class="detail_picbot_right"> <a href="javascript:void(0)" id="nextArrow_B"><img src="images/right1.jpg" alt="下一个" /></a> </div>
+    </div>
+  </div>
+  <!--图片轮换结束-->
+</center>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+  <p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+  <p>来源：<a href="http://www.www.jb51.net/" target="_blank">脚本之家</a></p>
+</div>
+</body>
+</html>

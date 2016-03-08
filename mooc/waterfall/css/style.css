@@ -1,0 +1,34 @@
+/*
+    页面所有的标签 margin 和 padding 
+*/
+*{
+    margin: 0px ;
+    padding: 0px;
+}
+#container{
+    position: relative;/*相对正常位置的定位*/
+}
+.box{
+    padding: 5px;
+    float: left;
+}
+.box_img{
+    padding: 5px;
+    border: 1px solid #cccccc; //设置边框
+    box-shadow:0 0 5px #ccc;  //设置阴影
+    border-radius: 5px;  //设置圆角
+}
+.box_img img{
+    width: 150px;
+    height: auto;
+}
+#add-more{
+    display: inline-block;
+    outline: none;
+    position: relative;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: .5em 2em .55em;
+    border-radius: .5em;
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+

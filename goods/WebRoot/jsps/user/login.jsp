@@ -81,7 +81,7 @@
                     </tr>
                     <tr>
                       <td height="20px">&nbsp;</td>
-                      <td><label id="verifyCodeError" class="error"></label></td>
+                      <td><label id="verifyCodeError" class="error">${errors.verifyCode}<</label></td>
                     </tr>
                     <tr>
                       <td>&nbsp;</td>

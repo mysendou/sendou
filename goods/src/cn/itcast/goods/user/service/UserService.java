@@ -9,6 +9,7 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 
 import cn.itcast.commons.CommonUtils;
+import cn.itcast.goods.exception.SendEmailException;
 import cn.itcast.goods.user.dao.UserDao;
 import cn.itcast.goods.user.domain.User;
 import cn.itcast.goods.user.service.exception.UserException;
@@ -114,8 +115,9 @@ public class UserService {
 	/**
 	 * 注册功能
 	 * @param user
+	 * @throws SendEmailException 
 	 */
-	public void regist(User user) {
+	public void regist(User user) throws SendEmailException {
 		/*
 		 * 1. 数据的补齐
 		 */
@@ -166,7 +168,7 @@ public class UserService {
 		try {
 			MailUtils.send(session, mail);
 		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+			throw new SendEmailException(content);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

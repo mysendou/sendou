@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cn.itcast.commons.CommonUtils;
+import cn.itcast.goods.exception.SendEmailException;
 import cn.itcast.goods.user.domain.User;
 import cn.itcast.goods.user.service.UserService;
 import cn.itcast.goods.user.service.exception.UserException;
@@ -130,7 +131,14 @@ public class UserServlet extends BaseServlet {
 		/*
 		 * 3. 使用service完成业务
 		 */
-		userService.regist(formUser);
+		try {
+			userService.regist(formUser);
+		} catch (SendEmailException e) {
+			req.setAttribute("code", "noweb");
+		    req.setAttribute("message","现在没有网络无法发送邮件到您的邮箱。");
+		    req.setAttribute("msg",e.getMessage());
+		    return "f:/jsps/noWeb.jsp";
+		}
 		/*
 		 * 4. 保存成功信息，转发到msg.jsp显示！
 		 */
@@ -361,6 +369,13 @@ public class UserServlet extends BaseServlet {
 	 */
 	private Map<String,String> validateLogin(User formUser, HttpSession session) {
 		Map<String,String> errors = new HashMap<String,String>();
+		String vCode = (String) session.getAttribute("vCode");
+		String vCodeVO = formUser.getVerifyCode();
+		if("" == vCodeVO || null == vCode){
+		    errors.put("verifyCode", "验证码不能为空");
+		}else if(!vCode.equalsIgnoreCase(vCodeVO)){
+		    errors.put("verifyCode", "验证码错误");
+		}
 		return errors;
 	}
 }

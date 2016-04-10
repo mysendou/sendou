@@ -62,7 +62,7 @@
 				<td>
 				  <input class="input" type="text" name="verifyCode" id="verifyCode" value="${user.verifyCode }""/>
 				</td>
-				<td><label id="verifyCodeError" class="error"></label></td>
+				<td><label id="verifyCodeError" class="error">${errors.verifyCode}<</label></td>
 			</tr>
 			<tr>
 				<td align="right"></td>

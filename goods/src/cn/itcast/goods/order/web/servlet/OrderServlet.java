@@ -302,7 +302,8 @@ public class OrderServlet extends BaseServlet {
 		order.setOid(CommonUtils.uuid());//设置主键
 		order.setOrdertime(String.format("%tF %<tT", new Date()));//下单时间
 		order.setStatus(1);//设置状态，1表示未付款
-		order.setAddress(req.getParameter("address"));//设置收货地址
+		order.setAddress(req.getParameter("name")+ " : "+req.getParameter("tel")+ " : " +req.getParameter("address"));//设置收货地址
+		
 		User owner = (User)req.getSession().getAttribute("sessionUser");
 		order.setOwner(owner);//设置订单所有者
 		

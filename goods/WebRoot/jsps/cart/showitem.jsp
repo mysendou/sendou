@@ -89,8 +89,10 @@
 		<td colspan="5" bgcolor="#efeae5"><span style="font-weight: 900">收货地址</span></td>
 	</tr>
 	<tr>
-		<td colspan="6">
-			<input id="addr" type="text" name="address" value="陕西省咸阳市咸阳师范学院王瑞收"/>
+		<td colspan="2">
+			姓名：<input id="addr" type="text" name="name" value="王瑞"/><br/>
+			电话：<input id="addr" type="text" name="tel" value="15026904591" /><br/>
+			地址：<input id="addr" type="text" name="address" value="陕西省咸阳市咸阳师范学院"/>
 		</td>
 	</tr>
 	<tr>

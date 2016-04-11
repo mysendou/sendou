@@ -26,5 +26,7 @@ a {text-decoration: none;}
   
   <body>
     <h1>欢迎进入IT图书销售系统</h1>
+    <iframe style="padding: 0px; width: 100%; height: 100%;" src='/goods/BookServlet?method=findByCategory&cid=5F79D0D246AD4216AC04E9C5FAB3199E'></iframe>
+    
   </body>
 </html>

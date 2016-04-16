@@ -184,6 +184,7 @@ public class AdminOrderServlet extends BaseServlet {
 		orderService.updateStatus(oid, 3);//设置状态为取消！
 		req.setAttribute("code", "success");
 		req.setAttribute("msg", "您的订单已发货，请查看物流，马上确认吧！");
+		req.setAttribute("mark","order");
 		return "f:/adminjsps/msg.jsp";		
 	}
 	

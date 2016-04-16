@@ -137,7 +137,9 @@ public class OrderServlet extends BaseServlet {
 		sb.append("&").append("pr_NeedResponse=").append(pr_NeedResponse);
 		sb.append("&").append("hmac=").append(hmac);
 		
+		//有网情况下打开
 		//		resp.sendRedirect(sb.toString());
+		//没网情况下打开
 		resp.sendRedirect("jsps/order/noWebPay.jsp?oid="+p2_Order);
 		return null;
 	}

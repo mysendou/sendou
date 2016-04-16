@@ -21,6 +21,11 @@
 </style>
   <body>
 <h2>${msg }</h2>
-<a href="/goods/admin/AdminOrderServlet?method=findAll"/>返回</a>
+<c:if test="${mark eq'book'}">
+	<a href="/goods/admin/AdminBookServlet?method=findByCategory&cid=5F79D0D246AD4216AC04E9C5FAB3199E"/>返回</a>
+</c:if>
+<c:if test="${mark eq 'order'}">
+	<a href="/goods/admin/AdminOrderServlet?method=findAll"/>返回</a>
+</c:if>
   </body>
 </html>

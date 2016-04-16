@@ -137,7 +137,8 @@ public class OrderServlet extends BaseServlet {
 		sb.append("&").append("pr_NeedResponse=").append(pr_NeedResponse);
 		sb.append("&").append("hmac=").append(hmac);
 		
-		resp.sendRedirect(sb.toString());
+		//		resp.sendRedirect(sb.toString());
+		resp.sendRedirect("jsps/order/noWebPay.jsp?oid="+p2_Order);
 		return null;
 	}
 	
@@ -387,4 +388,12 @@ public class OrderServlet extends BaseServlet {
 	    return "f:/jsps/msg.jsp";
 	}
 
+	public String noWebPay(HttpServletRequest req, HttpServletResponse resp){
+		String oid = req.getParameter("oid");
+	    req.setAttribute("order", orderService.load(req.getParameter("oid")));
+	    orderService.updateStatus(oid, 2);//设置状态为交易成功！
+        req.setAttribute("code", "success");
+        req.setAttribute("msg", "恭喜，交易成功！");
+	    return "f:/jsps/msg.jsp";
+	}
 }

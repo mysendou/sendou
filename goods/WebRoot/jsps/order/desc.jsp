@@ -83,7 +83,7 @@
 	<a href="<c:url value='/OrderServlet?method=paymentPre&oid=${order.oid }'/>" class="pay"></a><br/>
 </c:if>
 <c:if test="${order.status eq 1 and btn eq 'cancel'}">
-    <a id="cancel" href="<c:url value='/OrderServlet?method=cancel&oid=${order.oid }'/>">取消订单</a><br/>
+    <a id="cancel" href="<c:url value='/OrderServlet?method=cancel&oid=${order.oid }'/>">删除订单</a><br/>
 </c:if>
 <c:if test="${order.status eq 3 and btn eq 'confirm'}">
 	<a id="confirm" href="<c:url value='/OrderServlet?method=confirm&oid=${order.oid }'/>">确认收货</a><br/>

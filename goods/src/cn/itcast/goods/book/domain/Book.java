@@ -6,6 +6,7 @@ public class Book {
 	private String bid;//主键
 	private String bname;//图名
 	private String author;//作者
+	private double inputPrice;//进价
 	private double price;//定价
 	private double currPrice;//当前价
 	private double discount;//折扣
@@ -20,6 +21,13 @@ public class Book {
 	private Category category;//所属分类
 	private String image_w;//大图路径
 	private String image_b;//小图路径
+	
+	public double getInputPrice() {
+		return inputPrice;
+	}
+	public void setInputPrice(double inputPrice) {
+		this.inputPrice = inputPrice;
+	}
 	public String getBid() {
 		return bid;
 	}

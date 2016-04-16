@@ -103,6 +103,7 @@ function editForm() {
     <div id="book" style="float:left;">
 	    <ul>
 	    	<li>商品编号：${book.bid }</li>
+	    	<li>进价：<span class="price_n">&yen;${book.inputPrice }</span></li>
 	    	<li>当前价：<span class="price_n">&yen;${book.currPrice }</span></li>
 	    	<li>定价：<span style="text-decoration:line-through;">&yen;${book.price }</span>　折扣：<span style="color: #c30;">${book.discount }</span>折</li>
 	    </ul>
@@ -146,6 +147,7 @@ function editForm() {
 	    <ul>
 	    	<li>商品编号：${book.bid }</li>
 	    	<li>书名：　<input id="bname" type="text" name="bname" value="${book.bname }" style="width:500px;"/></li>
+	    	<li>进价：    <input id="inputPrice" type="text" name="inputPrice" value="${book.inputPrice}" style="width:50px;"/></li>
 	    	<li>当前价：<input id="currPrice" type="text" name="currPrice" value="${book.currPrice }" style="width:50px;"/></li>
 	    	<li>定价：　<input id="price" type="text" name="price" value="${book.price }" style="width:50px;"/>
 	    	折扣：<input id="discount" type="text" name="discount" value="${book.discount }" style="width:30px;"/>折</li>

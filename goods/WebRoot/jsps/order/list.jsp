@@ -66,7 +66,7 @@
 	<c:when test="${order.status eq 3 }">(等待确认)</c:when>
 	<c:when test="${order.status eq 4 }">(交易成功)</c:when>
 	<c:when test="${order.status eq 5 }">(已取消)</c:when>
-	<c:when test="${order.status eq 6 }">(货到付款)</c:when>
+	<c:when test="${order.status eq 6 }">(等待收获付款)</c:when>
 </c:choose>			
 
 			</td>

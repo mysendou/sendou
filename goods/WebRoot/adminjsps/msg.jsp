@@ -21,6 +21,6 @@
 </style>
   <body>
 <h2>${msg }</h2>
-<input type="button" value="返回" onclick="history.go(-1)"/>
+<a href="/goods/admin/AdminOrderServlet?method=findAll"/>返回</a>
   </body>
 </html>

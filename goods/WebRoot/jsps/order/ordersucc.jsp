@@ -32,7 +32,7 @@
 		<dt>收货地址</dt>
 		<dd>${order.address }</dd>
 	</dl>
-	<span>ITCAST书店感谢您的支持，祝您购物愉快！</span><br>
+	<span>IT图书销售系统感谢您的支持，祝您购物愉快！</span><br>
 	
 	<a href="<c:url value='/OrderServlet?method=paymentPre&oid=${order.oid }'/>" id="zaixian"></a>
 	<a href="<c:url value='/OrderServlet?method=confirm2&oid=${order.oid }'/>" id="huodao"></a>

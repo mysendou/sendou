@@ -86,7 +86,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="5" bgcolor="#efeae5"><span style="font-weight: 900">收货地址</span></td>
+		<td colspan="5" bgcolor="#efeae5"><span style="font-weight: 900">收货地址</span><span style="font-weight: 900;color:red;">（请输入详细省市街道，以防填写错误不能正确收获</span></td>
 	</tr>
 	<tr>
 		<td colspan="2">

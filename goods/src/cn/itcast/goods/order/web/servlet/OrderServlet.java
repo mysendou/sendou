@@ -138,9 +138,9 @@ public class OrderServlet extends BaseServlet {
 		sb.append("&").append("hmac=").append(hmac);
 		
 		//有网情况下打开
-				resp.sendRedirect(sb.toString());
+		//		resp.sendRedirect(sb.toString());
 		//没网情况下打开
-		//resp.sendRedirect("jsps/order/noWebPay.jsp?oid="+p2_Order);
+		resp.sendRedirect("jsps/order/noWebPay.jsp?oid="+p2_Order);
 		return null;
 	}
 	
@@ -256,7 +256,7 @@ public class OrderServlet extends BaseServlet {
 		}
 		orderService.updateStatus(oid, 4);//设置状态为交易成功！
 		req.setAttribute("code", "success");
-		req.setAttribute("msg", "恭喜，交易成功！");
+		req.setAttribute("msg", "恭喜，下单成功，等待收货吧！");
 		return "f:/jsps/msg.jsp";		
 	}
 	
@@ -386,7 +386,7 @@ public class OrderServlet extends BaseServlet {
 	    req.setAttribute("order", orderService.load(req.getParameter("oid")));
 	    orderService.updateStatus(oid, 6);//设置状态为交易成功！
         req.setAttribute("code", "success");
-        req.setAttribute("msg", "恭喜，交易成功！");
+        req.setAttribute("msg", "恭喜，下单成功，等待收货吧！");
 	    return "f:/jsps/msg.jsp";
 	}
 
@@ -395,7 +395,7 @@ public class OrderServlet extends BaseServlet {
 	    req.setAttribute("order", orderService.load(req.getParameter("oid")));
 	    orderService.updateStatus(oid, 2);//设置状态为交易成功！
         req.setAttribute("code", "success");
-        req.setAttribute("msg", "恭喜，交易成功！");
+        req.setAttribute("msg", "恭喜，下单成功，等待收货吧！！");
 	    return "f:/jsps/msg.jsp";
 	}
 }

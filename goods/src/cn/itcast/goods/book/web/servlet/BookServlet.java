@@ -64,8 +64,14 @@ public class BookServlet extends BaseServlet {
 			throws ServletException, IOException {
 		String bid = req.getParameter("bid");//获取链接的参数bid
 		Book book = bookService.load(bid);//通过bid得到book对象
-		req.setAttribute("book", book);//保存到req中
-		return "f:/jsps/book/desc.jsp";//转发到desc.jsp
+		//判断库存
+		if(book.getQuantityNumber() > 1){
+			req.setAttribute("book", book);//保存到req中
+			return "f:/jsps/book/desc.jsp";//转发到
+		} else {
+			req.setAttribute("msg", "当前图书太过火热，已没有库存，我们马上会进行处理！为你带来的不便请谅解！");
+			return "f:/jsps/book/msg.jsp";//转发到desc.jsp
+		}
 	}
 	
 	/**

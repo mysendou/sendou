@@ -91,6 +91,17 @@ public class OrderDao {
 					item.getBook().getImage_b(),order.getOid()};
 		}
 		qr.batch(sql, objs);
+		
+		/*
+		 * 3. 循环遍历订单的所有条目，将每本书的库存减少
+		 */
+		sql = "update t_book set quantityNumber = quantityNumber - ? where bid = ?";
+		Object[][] objs2 = new Object[len][];
+		for(int i = 0; i < len; i++){
+			OrderItem item = order.getOrderItemList().get(i);
+			objs2[i] = new Object[]{item.getQuantity(),item.getBook().getBid()};
+		}
+		qr.batch(sql, objs2);
 	}
 	
 	/**

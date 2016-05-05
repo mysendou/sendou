@@ -50,13 +50,14 @@ $(function () {
 		var cid = $("#cid").val();
 		var image_w = $("#image_w").val();
 		var image_b = $("#image_b").val();
+		var quantityNumber = $("#quantityNumber").val();
 		
-		if(!bname || !currPrice || !price || !discount || !author || !press || !pid || !cid || !image_w || !image_b || !inputPrice) {
+		if(!bname || !currPrice || !price || !discount || !author || !press || !pid || !cid || !image_w || !image_b || !inputPrice || !quantityNumber) {
 			alert("图名、进价、当前价、定价、折扣、作者、出版社、1级分类、2级分类、大图、小图都不能为空！");
 			return false;
 		}
 		
-		if(isNaN(currPrice) || isNaN(price) || isNaN(discount) || isNaN(inputPrice)) {
+		if(isNaN(currPrice) || isNaN(price) || isNaN(discount) || isNaN(inputPrice) || isNaN(quantityNumber)) {
 			alert("进价、当前价、定价、折扣必须是合法小数！");
 			return false;
 		}
@@ -109,6 +110,7 @@ function loadChildren() {
 	    	<li>大图：　<input id="image_w" type="file" name="image_w"/></li>
 	    	<li>小图：　<input id="image_b" type="file" name="image_b"/></li>
 	    	<li>进价：    <input id="inputPrice" type="text" name="inputPrice" value="50" style="width:50px;"/></li>
+	    	<li>库存：    <input id="quantityNumber" type="text" name="quantityNumber" value="50" style="width:50px;"/></li>
 	    	<li>当前价：<input id="currPrice" type="text" name="currPrice" value="40.7" style="width:50px;"/></li>
 	    	<li>定价：　<input id="price" type="text" name="price" value="59.0" style="width:50px;"/>
 	    	折扣：<input id="discount" type="text" name="discount" value="6.9" style="width:30px;"/>折</li>

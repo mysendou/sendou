@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.itcast.goods.common.CommonBean;
 import cn.itcast.goods.order.domain.Order;
 import cn.itcast.goods.order.domain.SellItemCategory;
 import cn.itcast.goods.order.service.OrderService;
@@ -196,5 +197,13 @@ public class AdminOrderServlet extends BaseServlet {
         pb.setUrl(url);
         req.setAttribute("pb", pb);
         return "f:/adminjsps/admin/order/sellList.jsp";
+	}
+	
+	public String findProfitThreeMonth(HttpServletRequest req, HttpServletResponse resp){
+		String startDate = req.getParameter("starttime");
+		String endDate = req.getParameter("endtime");
+		CommonBean bean = orderService.findProfitThreeMonth(startDate,endDate);
+		req.setAttribute("bean", bean);
+		return "f:/adminjsps/admin/order/profit.jsp";
 	}
 }

@@ -2,6 +2,7 @@ package cn.itcast.goods.order.service;
 
 import java.sql.SQLException;
 
+import cn.itcast.goods.common.CommonBean;
 import cn.itcast.goods.order.dao.OrderDao;
 import cn.itcast.goods.order.domain.Order;
 import cn.itcast.goods.order.domain.SellItemCategory;
@@ -150,6 +151,21 @@ public class OrderService {
 			PageBean<SellItemCategory> pb = orderDao.findAllCategoryBook(pc);
 			JdbcUtils.commitTransaction();
 			return pb;
+		} catch (SQLException e) {
+			try {
+				JdbcUtils.rollbackTransaction();
+			} catch (SQLException e1) {
+			}
+			throw new RuntimeException(e);
+		}
+	}
+
+	public CommonBean findProfitThreeMonth(String startDate, String endDate) {
+		try {
+			JdbcUtils.beginTransaction();
+			CommonBean bean = orderDao.findProfitThreeMonth(startDate, endDate);
+			JdbcUtils.commitTransaction();
+			return bean;
 		} catch (SQLException e) {
 			try {
 				JdbcUtils.rollbackTransaction();

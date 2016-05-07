@@ -136,7 +136,7 @@ function loadChildren() {
 				<td>字数：　　<input type="text" name="wordNum" id="wordNum" value="48700" style="width:80px;"/></td>
 			</tr>
 			<tr>
-				<td width="250">印刷时间：<input type="text" name="printtime" id="printtime" value="2013-6-1" style="width:100px;"/></td>
+				<td width="250">印刷时间：<input type="text" name="printtime" id="printtime" value="2015-6-1" style="width:100px;"/></td>
 				<td width="250">开本：　　<input type="text" name="booksize" id="booksize" value="16" style="width:30px;"/></td>
 				<td>纸张：　　<input type="text" name="paper" id="paper" value="胶版纸" style="width:80px;"/></td>
 			</tr>

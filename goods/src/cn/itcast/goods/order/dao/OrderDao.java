@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
@@ -13,6 +14,7 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import cn.itcast.commons.CommonUtils;
 import cn.itcast.goods.book.domain.Book;
+import cn.itcast.goods.common.CommonBean;
 import cn.itcast.goods.order.domain.Order;
 import cn.itcast.goods.order.domain.OrderItem;
 import cn.itcast.goods.order.domain.SellItemCategory;
@@ -253,7 +255,6 @@ public class OrderDao {
 
 	private PageBean<SellItemCategory> findSellByCcategory(int pc) throws SQLException {
 		String sql = "SELECT DISTINCT(c.cname) FROM t_orderitem o,t_category c, t_book b WHERE o.bid=b.bid AND b.cid=c.cid;";
-        @SuppressWarnings("unchecked")
         List<SellItemCategory> list = qr.query(sql, new BeanListHandler<SellItemCategory>(SellItemCategory.class));
         PageBean<SellItemCategory> pageBean = new PageBean<SellItemCategory>();
         for (SellItemCategory item : list) {
@@ -264,5 +265,27 @@ public class OrderDao {
         pageBean.setBeanList(list);
         return pageBean;
 
+	}
+
+	public CommonBean findProfitThreeMonth(String startDate, String endDate) throws SQLException {
+		String sql = "";
+		CommonBean bean = null;
+		if(startDate == null && endDate == null){
+			sql = "SELECT SUM(((b.`currPrice`-b.`inputPrice`)*oi.`quantity`)) profit FROM t_orderitem oi INNER JOIN t_book b ON oi.`bid` = b.`bid` AND oi.`oid` IN (SELECT oid FROM t_order WHERE ordertime > '2016-03-01');";
+		} else {
+			sql = "SELECT SUM(((b.`currPrice`-b.`inputPrice`)*oi.`quantity`)) profit FROM t_orderitem oi INNER JOIN t_book b ON oi.`bid` = b.`bid` AND oi.`oid` IN (SELECT oid FROM t_order WHERE ordertime > ? AND ordertime);";
+		}
+		if(startDate == null && endDate == null){
+			sql = "SELECT SUM(((b.`currPrice`-b.`inputPrice`)*oi.`quantity`)) profit FROM t_orderitem oi INNER JOIN t_book b ON oi.`bid` = b.`bid` AND oi.`oid` IN (SELECT oid FROM t_order WHERE ordertime > '2016-03-01');";
+			bean = qr.query(sql, new BeanHandler<CommonBean>(CommonBean.class));
+		} else {
+			sql = "SELECT SUM(((b.`currPrice`-b.`inputPrice`)*oi.`quantity`)) profit FROM t_orderitem oi INNER JOIN t_book b ON oi.`bid` = b.`bid` AND oi.`oid` IN (SELECT oid FROM t_order WHERE ordertime > ? AND ordertime < ?);";
+			bean = qr.query(sql, new BeanHandler<CommonBean>(CommonBean.class), startDate, endDate);
+		}
+		
+		if(bean.getProfit() == null){
+			bean.setProfit("0");
+		}
+		return bean;
 	}
 }

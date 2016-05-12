@@ -8,6 +8,7 @@ font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
 height:55px;
 background-color:rgb(25,119,176);
 font-weight:bold;
+width: 197px;
 }
 
 .barTitleText {
@@ -15,6 +16,7 @@ font-weight:bold;
 	width:100%;
 	margin-top:20px;
 	text-align:center;
+	font-size: large;
 }
 
 .menuTitleText {
@@ -26,7 +28,7 @@ float:left;
 
 .menuTitle {
 background-color:rgb(25,119,176);
-width:168px;
+width:197px;
 height:25px;
 margin-top:1px;
 border-right-color:rgb(211,211,211);
@@ -48,10 +50,11 @@ cursor:pointer;
 	display:none;
 	overflow:auto;
 	text-align:center;
+	width: 197px;
 }
 .barBottom {
 background-color:rgb(25,119,176);
-width:168px;
+width:197px;
 height:15px;
 }
 a {

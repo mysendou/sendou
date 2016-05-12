@@ -79,6 +79,9 @@
 <c:if test="${order.status eq 3 }">
 				<a href="<c:url value='/OrderServlet?method=load&oid=${order.oid }&btn=confirm'/>">确认收货</a><br/>
 </c:if>
+<c:if test="${order.status eq 6 }">
+				<a href="<c:url value='/OrderServlet?method=load&oid=${order.oid }&btn=confirm'/>">确认收货</a><br/>
+</c:if>
 			</td>
 		</tr>
 </c:forEach>

@@ -16,6 +16,7 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<script type="text/javascript" src="<c:url value='/jquery/jquery-1.5.1.js'/>"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/jsps/css/order/desc.css'/>">
   </head>
   
@@ -86,10 +87,27 @@
     <a id="cancel" href="<c:url value='/OrderServlet?method=cancel&oid=${order.oid }'/>">删除订单</a><br/>
 </c:if>
 <c:if test="${order.status eq 3 and btn eq 'confirm'}">
-	<a id="confirm" href="<c:url value='/OrderServlet?method=confirm&oid=${order.oid }'/>">确认收货</a><br/>
+	<a id="confirm" href="<c:url value='/OrderServlet?method=confirm&oid=${order.oid }'/>" onclick="confirmGetGoods()">确认收货</a><br/>
+	<a id="confirm2" href="<c:url value='/OrderServlet?method=confirm&oid=${order.oid }'/>"></a>
+</c:if>	
+<c:if test="${order.status eq 6 and btn eq 'confirm'}">
+	<a id="confirm" href="<c:url value='/OrderServlet?method=confirm&oid=${order.oid }'/>" onclick="confirmGetGoods()">确认收货</a><br/>
+	<a id="confirm2" href="<c:url value='/OrderServlet?method=confirm&oid=${order.oid }'/>"></a>
 </c:if>	
 		</div>
 	</div>
+	<script type="text/javascript">
+		function confirmGetGoods(){
+			var theLink = $("#confirm2").attr("href");
+			var mark = false;
+			mark = confirm("是否确认收货？");
+			if(mark){
+				$("#confirm").attr("href",theLink);
+			} else {
+				$("#confirm").attr("href","#");
+			}
+		}
+	</script>
 </body>
 </html>
 

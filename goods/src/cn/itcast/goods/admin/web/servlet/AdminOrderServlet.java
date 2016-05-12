@@ -204,6 +204,11 @@ public class AdminOrderServlet extends BaseServlet {
 		String endDate = req.getParameter("endtime");
 		CommonBean bean = orderService.findProfitThreeMonth(startDate,endDate);
 		req.setAttribute("bean", bean);
+		if(startDate == null){
+			req.setAttribute("timeSlot", "近三个月");
+		} else {
+			req.setAttribute("timeSlot", startDate + " 至 " + endDate);
+		}
 		return "f:/adminjsps/admin/order/profit.jsp";
 	}
 }

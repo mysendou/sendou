@@ -32,7 +32,7 @@
 			<iframe frameborder="0" src="<c:url value='/CategoryServlet?method=findAll'/>" name="left"></iframe>
 		</td>
 		<td class="tdSearch" style="border-bottom-width: 0px;">
-			<iframe frameborder="0" src="<c:url value='/jsps/search.jsp'/>" name="search"></iframe>
+			<iframe frameborder="0" style="width:980px;height:51px;" src="<c:url value='/jsps/search.jsp'/>" name="search"></iframe>
 		</td>
 	</tr>
 	<tr>

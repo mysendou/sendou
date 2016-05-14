@@ -1,14 +1,14 @@
 .menuBar {
 border:1px solid rgb(211,211,211);
-width:168px;
+/*width:168px;*/
 color:#ffffff;
-font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+font-family: "微软雅黑";
 }
 .barTitle {
-height:55px;
-background-color:rgb(25,119,176);
+height:80px;
+background-color:rgb(56,100,149);
 font-weight:bold;
-width: 197px;
+/*width: 197px;*/
 }
 
 .barTitleText {
@@ -20,15 +20,15 @@ width: 197px;
 }
 
 .menuTitleText {
-margin-top:3px;
+/*margin-top:3px;*/
 margin-left:10px;
 float:left;
 }
 
 
 .menuTitle {
-background-color:rgb(25,119,176);
-width:197px;
+background-color:rgb(56,100,149);
+/*width:197px;*/
 height:25px;
 margin-top:1px;
 border-right-color:rgb(211,211,211);
@@ -50,16 +50,16 @@ cursor:pointer;
 	display:none;
 	overflow:auto;
 	text-align:center;
-	width: 197px;
+	/*width: 197px;*/
 }
 .barBottom {
 background-color:rgb(25,119,176);
-width:197px;
+/*width:197px;*/
 height:15px;
 }
 a {
 	color:#000000;
-	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-family: "微软雅黑";
 }
 a:link {
 	TEXT-DECORATION: none
@@ -69,7 +69,6 @@ a:visited {
 }
 a:hover {
 	TEXT-DECORATION: none;
-	font
 }
 a:active {
 	TEXT-DECORATION: none;/*underline*/

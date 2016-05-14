@@ -18,7 +18,15 @@
 <style type="text/css">
 	table {
 		color: #404040;
-		font-size: 10pt;
+		border: 1px solid #386495;
+        border-radius: 3px;
+        padding: 40px;
+        margin-left: 245px;
+        margin-top: 50px;
+        font-family: "微软雅黑";
+	}
+	input{
+	    font-family:"微软雅黑";
 	}
 </style>
   </head>
@@ -40,9 +48,14 @@
 		<td><input type="text" name="press"/></td>
 	</tr>
 	<tr>
+	   <td></td>
+	   <td></td>
+	   <td></td>
+	</tr>
+	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<input type="submit" value="搜　　索"/>
+			<input type="submit" value="搜　　索"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="reset" value="重新填写"/>
 		</td>
 	</tr>

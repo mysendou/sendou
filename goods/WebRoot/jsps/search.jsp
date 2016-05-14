@@ -27,12 +27,14 @@
 		height: 30px;
 		border-style:solid;
 		margin:0px;
-		border-color: #15B69A;
+		border-color: #386495;
+		border-radius:5px;
 	}
 	a {
 		text-transform:none;
 		text-decoration:none;
 		border-width: 0px;
+		font-family:"微软雅黑";
 	} 
 	a:hover {
 		text-decoration:underline;
@@ -49,8 +51,8 @@
     	<input type="hidden" name="method" value="findByBname"/>
     	<input type="text" name="bname"/>
     	<span>
-    		<a href="javascript:document.getElementById('form1').submit();"><img align="top" border="0" src="../images/btn.bmp"/></a>
-    		<a href="<c:url value='/jsps/gj.jsp'/>" style="font-size: 10pt; color: #404040;" target="body">高级搜索</a>
+    		<a href="javascript:document.getElementById('form1').submit();"><img align="top" border="0" src="../images/btn.jpg"/></a>
+    		<a href="<c:url value='/jsps/gj.jsp'/>" style="font-size: 10pt;color: #ffffff;width: 70px;height: 30px;background-color: #386495;padding: 8px;font-family: "微软雅黑";border-radius: 6px;" target="body">高级搜索</a>
     	</span>
     </form>
     

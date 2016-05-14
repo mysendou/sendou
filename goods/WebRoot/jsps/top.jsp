@@ -18,7 +18,7 @@
 	-->
 <style type="text/css">
 	body {
-		background: #15B69A;
+		background: #386495;
 		margin: 0px;
 		color: #ffffff;
 		font-family:"微软雅黑";

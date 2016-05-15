@@ -140,7 +140,7 @@ public class OrderServlet extends BaseServlet {
 		//有网情况下打开
 		//		resp.sendRedirect(sb.toString());
 		//没网情况下打开
-		resp.sendRedirect("jsps/order/noWebPay.jsp?oid="+p2_Order);
+		resp.sendRedirect("/jsps/order/noWebPay.jsp?oid="+p2_Order);
 		return null;
 	}
 	

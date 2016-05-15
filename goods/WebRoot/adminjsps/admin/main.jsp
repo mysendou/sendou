@@ -24,12 +24,12 @@
 <table class="table" align="center">
 	<tr>
 		<td colspan="2" align="center" height="100px;">
-			<iframe frameborder="0" src="<c:url value='/adminjsps/admin/top.jsp'/>" name="top"></iframe>
+			<iframe frameborder="0" src="<c:url value='/adminjsps/admin/top.jsp'/>" name="top" scrolling="no"></iframe>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<iframe frameborder="0" src="<c:url value='/adminjsps/admin/body.jsp'/>" name="body"></iframe>
+			<iframe frameborder="0" src="<c:url value='/adminjsps/admin/body.jsp'/>" name="body" scrolling="no"></iframe>
 		</td>
 	</tr>
 </table>

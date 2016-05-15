@@ -64,7 +64,7 @@
 	</script>
   </head>
   
-  <body class="login_body" style="background: #4e4e4e">
+  <body class="login_body" style="background: #009933">
 <!--  <h1>管理员登录页面</h1>
 <hr/>
   <p style="font-weight: 900; color: red">${msg }</p>

@@ -25,7 +25,7 @@ public class UserDao {
 	 * @throws SQLException 
 	 */
 	public boolean findByUidAndPassword(String uid, String password) throws SQLException {
-		String sql = "select count(*) from t_user where uid=? and loginpass=?";
+		String sql = "select count(*) from t_user where uid=? and loginpass=MD5(?)";
 		Number number = (Number)qr.query(sql, new ScalarHandler(), uid, password);
 		return number.intValue() > 0;
 	}
@@ -37,7 +37,7 @@ public class UserDao {
 	 * @throws SQLException
 	 */
 	public void updatePassword(String uid, String password) throws SQLException {
-		String sql = "update t_user set loginpass=? where uid=?";
+		String sql = "update t_user set loginpass=MD5(?) where uid=?";
 		qr.update(sql, password, uid);
 	}
 	
@@ -49,7 +49,7 @@ public class UserDao {
 	 * @throws SQLException 
 	 */
 	public User findByLoginnameAndLoginpass(String loginname, String loginpass) throws SQLException {
-		String sql = "select * from t_user where loginname=? and loginpass=?";
+		String sql = "select * from t_user where loginname=? and loginpass=MD5(?)";
 		return qr.query(sql, new BeanHandler<User>(User.class), loginname, loginpass);
 	}
 	
@@ -105,7 +105,7 @@ public class UserDao {
 	 * @throws SQLException 
 	 */
 	public void add(User user) throws SQLException {
-		String sql = "insert into t_user values(?,?,?,?,?,?)";
+		String sql = "insert into t_user values(?,?,MD5(?),?,?,?)";
 		Object[] params = {user.getUid(), user.getLoginname(), user.getLoginpass(),
 				user.getEmail(), user.isStatus(), user.getActivationCode()};
 		qr.update(sql, params);

@@ -35,7 +35,7 @@ function Q6MenuBar(objName, barName) {
 	this.colors[2] = {
 		itemBgMoveColor:"rgb(246,133,1)",
 		itemBorderMoveColor:"rgb(236,171,87)",
-		menuBgColor:"rgb(78,78,78)",//38
+		menuBgColor:"rgb(90, 61, 41)",//38
 		menuBorderColor:"rgb(102,102,102)",//100
 		itemBgColor:"rgb(32,145,177)",
 		itemBorderColor:"rgb(119,171,113)",
@@ -69,10 +69,10 @@ function Q6MenuBar(objName, barName) {
 		menuContentColor:"rgb(76,48,0)"
 	};
 	this.colors[4] = {
-		menuBgColor:"#15B69A",
+		menuBgColor:"#386495",
 		menuBorderColor:"gray",
 		itemBgColor:"#EAFFFA",
-		itemBorderColor:"#15B69A",
+		itemBorderColor:"#386495",
 		itemBgMoveColor:"rgb(13,133,96)",
 		itemBorderMoveColor:"gray",
 		itemMoveColor:"#FFFFFF",

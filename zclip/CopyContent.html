@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Demo - Copy</title>
+</head>
+<body>
+	<p id="process-content" cols="60" name="content" rows="2" id="content">www.qzpcw.com</p> 
+	<input type=button value="复制" id="process-copy">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.zclip.js"></script>
+	<script>
+	$(function(){
+		$("#process-copy").zclip({
+			path:"js/ZeroClipboard.swf",
+			copy:function(){
+				return $(this).siblings()[0].innerHTML;
+			}
+		});
+	});
+	</script>
+</body>
+</html>
